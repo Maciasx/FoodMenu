@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "food")
 public class Food implements Serializable {
 
     @Id
@@ -20,7 +21,8 @@ public class Food implements Serializable {
     public Food() {
     }
 
-    public Food(String name, Double calorie, Double protein, Double fat, Double sugar, Double fiber) {
+    public Food(Long id, String name, Double calorie, Double protein, Double fat, Double sugar, Double fiber) {
+        this.id = id;
         this.name = name;
         this.calorie = calorie;
         this.protein = protein;
@@ -28,7 +30,6 @@ public class Food implements Serializable {
         this.sugar = sugar;
         this.fiber = fiber;
     }
-
 
     public Long getId() {
         return id;
