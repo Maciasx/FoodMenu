@@ -3,10 +3,11 @@ package pl.github.maciasx.FoodMenu.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.github.maciasx.FoodMenu.exception.UserNotFoundException;
-import pl.github.maciasx.FoodMenu.model.*;
+import pl.github.maciasx.FoodMenu.model.Food;
+import pl.github.maciasx.FoodMenu.model.Menu;
+import pl.github.maciasx.FoodMenu.model.MenuRequest;
 import pl.github.maciasx.FoodMenu.repo.MenuRepo;
 
-import javax.persistence.Query;
 import java.sql.Date;
 import java.util.List;
 
@@ -21,9 +22,8 @@ public class MenuService {
         this.foodService = foodService;
     }
 
-    public Menu addMenu(MenuRequest menuRequest)
-    {
-        for( Food foods: menuRequest.getFoodId()) {
+    public Menu addMenu(MenuRequest menuRequest) {
+        for (Food foods : menuRequest.getFoodId()) {
             Food food = foodService.findFoodById(foods.getId());
             Menu menu = new Menu();
             menu.setFoods(food);
@@ -34,35 +34,29 @@ public class MenuService {
         return null;
     }
 
-    public List<Menu> findAllMenu()
-    {
+    public List<Menu> findAllMenu() {
         return menuRepo.findAll();
     }
 
-    public List<Menu> findMenu()
-    {
+    public List<Menu> findMenu() {
         return menuRepo.findAll();
     }
 
-    public Menu updateMenu(Menu menu)
-    {
+    public Menu updateMenu(Menu menu) {
         return menuRepo.save(menu);
     }
 
-    public Menu findMenuById(Long id)
-    {
+    public Menu findMenuById(Long id) {
         return menuRepo.findMenuById(id).orElseThrow(() -> new UserNotFoundException(" Menu by id" + id + " was not found"));
     }
 
-    public List<Menu> findMenuByDateMenu(Date dateMenu)
-    {
+    public List<Menu> findMenuByDateMenu(Date dateMenu) {
 
         List<Menu> allMenu = menuRepo.findAllMenuByDateMenu(dateMenu);
         return allMenu;
     }
 
-    public void deleteMenu(Long id)
-    {
+    public void deleteMenu(Long id) {
         menuRepo.deleteMenuById(id);
     }
 }

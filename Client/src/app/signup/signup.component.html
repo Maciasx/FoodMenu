@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Rejestracja</h1>
+                </div>
+                <form>
+                    <form [formGroup]="signUp" (ngSubmit)="addSignUp()">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleInputFullname1" class="form-label">Podaj imię i nazwisko</label>
+                                <input formControlName="fullname" type="text" class="form-control" id="exampleInputFullname1">
+                                <span class="text-danger" *ngIf="signUp.controls['fullname'].dirty && signUp.hasError('required','passfullnameord')">*Imię i Nazwisko jest wymagane</span>
+                              </div>
+                          <label for="exampleInputEmail1" class="form-label">Adres email </label>
+                          <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text">Nie podawaj nigdy swojego emailu</div>
+                          <span class="text-danger" *ngIf="signUp.controls['email'].dirty && signUp.hasError('required','email')">*Email jest wymagany</span>
+
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Hasło</label>
+                          <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                          <span class="text-danger" *ngIf="signUp.controls['password'].dirty && signUp.hasError('required','password')">*Hasło jest wymagane</span>
+                        </div>
+                        <button type="submit" [disabled]="!signUp.valid" class="btn btn-primary">Zarejestruj się</button>
+                      </form>
+                </form>
+                <a style="color: rgb(0, 0, 0); margin-top: 10px" routerLink="/login">Masz już konto? Zaloguj się!</a>
+            </div>
+        </div>
+    </div>

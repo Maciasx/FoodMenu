@@ -12,7 +12,7 @@ public class MenuRequest {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateMenu;
 
-    public MenuRequest(Long id,  List<Food> foods, Meal meal, Date dateMenu) {
+    public MenuRequest(Long id, List<Food> foods, Meal meal, Date dateMenu) {
         this.id = id;
         this.foods = foods;
         this.meal = meal;

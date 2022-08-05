@@ -17,28 +17,23 @@ public class FoodService {
         this.foodRepo = foodRepo;
     }
 
-    public Food addFood(Food food)
-    {
+    public Food addFood(Food food) {
         return foodRepo.save(food);
     }
 
-    public List<Food> findAllFood()
-    {
+    public List<Food> findAllFood() {
         return foodRepo.findAll();
     }
 
-    public Food updateFood(Food food)
-    {
+    public Food updateFood(Food food) {
         return foodRepo.save(food);
     }
 
-    public Food findFoodById(Long id)
-    {
+    public Food findFoodById(Long id) {
         return foodRepo.findFoodById(id).orElseThrow(() -> new UserNotFoundException(" Food by id" + id + " was not found"));
     }
 
-    public void deleteFood(Long id)
-    {
+    public void deleteFood(Long id) {
         foodRepo.deleteFoodById(id);
     }
 }

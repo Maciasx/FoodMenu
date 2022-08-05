@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
-public interface MenuRepo extends JpaRepository<Menu,Long> {
+public interface MenuRepo extends JpaRepository<Menu, Long> {
     void deleteMenuById(Long id);
 
     Optional<Menu> findMenuById(Long id);
