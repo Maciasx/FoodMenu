@@ -23,8 +23,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> getLogin(@RequestBody User user) {
+    public ResponseEntity<Long> getLogin(@RequestBody User user) {
         User getUser = userService.getLogin(user);
-        return new ResponseEntity<>(getUser, HttpStatus.OK);
+        return new ResponseEntity<>(getUser.getId(), HttpStatus.OK);
     }
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FoodService } from 'src/service/food.service';
 import { LoginService } from 'src/service/login.service';
 
@@ -13,9 +13,15 @@ import { LoginService } from 'src/service/login.service';
 export class AddFoodComponent implements OnInit {
 
   public food !: FormGroup;
-  constructor(private formBuilder : FormBuilder, private http : HttpClient, private foodService: FoodService, private router:Router) { }
+  public user: number;
+  constructor(private formBuilder : FormBuilder, private http : HttpClient, private foodService: FoodService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.route.params.subscribe(params => {
+      this.user = params['user'];
+    });
+
     this.food = this.formBuilder.group({
       name:['',Validators.required],
       calorie: ['',Validators.required],
@@ -23,6 +29,8 @@ export class AddFoodComponent implements OnInit {
       fat: ['',Validators.required],
       carbohydrates: ['',Validators.required]
     })
+
+   
   }
 
   addSignUp(){

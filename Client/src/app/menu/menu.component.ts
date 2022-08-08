@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Food } from 'src/model/food';
 import { Meal } from 'src/model/meal';
 import { Menu } from 'src/model/menu';
@@ -16,14 +17,19 @@ import { MenuService } from 'src/service/menu.service';
 
 export class MenuComponent implements OnInit {
 
-  foods: Food[];
-  menus: Menu[];
-  DataSelected : any = this.datePipe.transform(new Date(),"yyyy-MM-dd");
-  allMeal = Meal;
+  public foods: Food[];
+  public menus: Menu[];
+  public dataSelected : any = this.datePipe.transform(new Date(),"yyyy-MM-dd");
+  public allMeal = Meal;
+  public user: number;
   
-  constructor(private foodService: FoodService,private menuService: MenuService, private datePipe:DatePipe){}
+  constructor(private foodService: FoodService,private menuService: MenuService, private datePipe:DatePipe, private route: ActivatedRoute){}
   ngOnInit() {
     this.getAllMenu();
+    this.route.params.subscribe(params => {
+      this.user = params["user"];
+    });
+    console.log(this.user);
   }
 
   
@@ -54,7 +60,7 @@ export class MenuComponent implements OnInit {
     }
 
     public getAllMenu(): void {
-      this.menuService.getMenuByDate(this.DataSelected).subscribe(
+      this.menuService.getMenuByDate(this.dataSelected).subscribe(
         (response: Menu[]) => {
           this.menus = response;  
           console.log(this.menus);     

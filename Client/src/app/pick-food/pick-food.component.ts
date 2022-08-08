@@ -10,15 +10,18 @@ export class PickFoodComponent implements OnInit {
 
   public meal: number;
   public date: String;
+  public user: number;
   constructor(private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    let meal = Number(this.route.snapshot.paramMap.get('meal'));
-    this.meal = meal;
+    this.route.params.subscribe(params => {
+      this.meal = params['meal'];
+      this.date = params['date'];
+      this.user = params['user'];
+    });
 
-    let date = String(this.route.snapshot.paramMap.get('date'));
-    this.date = date;
+
   }
 
 }

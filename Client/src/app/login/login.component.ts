@@ -20,15 +20,16 @@ export class LoginComponent implements OnInit {
       email:['',Validators.required],
       password:['', Validators.required]
     })
+    
   }
 
   getLogin()
   {
     this.loginService.getLogin(this.login).subscribe(
-      (response: any) => {
+      (response: number) => {
         alert("Logowanie powiodło się");
         this.login.reset();
-        this.router.navigate(['menu'])
+        this.router.navigate(['/menu/' + response])
        }
       ,
       (error: HttpErrorResponse) => {

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light" style="background-color: #71eea1" >
-    <h1 class="center" ><input (change)="getAllMenu()" type="date" [(ngModel)]="DataSelected"></h1>
+    <h1 class="center" ><input (change)="getAllMenu()" type="date" [(ngModel)]="dataSelected"></h1>
     <form class="nav justify-content-end">
-    <button type="button" id="add-btn" class="btn btn-success mx-2" routerLink="/addFood"> Dodaj produkt</button>
+    <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/addFood', user]"> Dodaj produkt</button>
     <button routerLink="/login" class="btn btn-danger mx-2">Wyloguj</button>
 </form>
 </nav>
@@ -15,7 +15,7 @@
       <th>Białko</th>
       <th>Tłuszcze</th>
       <th>Węglowodany</th>
-      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', DataSelected, 0 ]">Dodaj</button></th>
+      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 0 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
@@ -39,7 +39,7 @@
       <th>Białko</th>
       <th>Tłuszcze</th>
       <th>Węglowodany</th>
-      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', DataSelected, 1 ]">Dodaj</button></th>
+      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 1 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
@@ -64,7 +64,7 @@
       <th>Białko</th>
       <th>Tłuszcze</th>
       <th>Węglowodany</th>
-      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', DataSelected, 2 ]">Dodaj</button></th>
+      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 2 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
@@ -88,7 +88,7 @@
       <th>Białko</th>
       <th>Tłuszcze</th>
       <th>Węglowodany</th>
-      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', DataSelected, 3 ]">Dodaj</button></th>
+      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 3 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
@@ -112,7 +112,7 @@
       <th>Białko</th>
       <th>Tłuszcze</th>
       <th>Węglowodany</th>
-      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', DataSelected, 4 ]">Dodaj</button></th>
+      <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 4 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
