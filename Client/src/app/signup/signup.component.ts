@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUp = this.formBuilder.group({
-      fullname:['',Validators.required],
+      username:['',Validators.required],
       email:['',Validators.required],
       password:['',Validators.required]
     })
@@ -26,12 +26,13 @@ export class SignupComponent implements OnInit {
 
     this.loginService.addSignUp(this.signUp).subscribe(
       (response: any) => {
-        alert("Rejestracja powiodła się")
+        alert("Dodano użytkownika")
         this.signUp.reset();
         this.router.navigate(['login']);
       },
       (error: HttpErrorResponse) => {
-        alert("Coś poszło nie tak");
+        console.log(error);
+        alert(error.error.message);
       }
     );
   }

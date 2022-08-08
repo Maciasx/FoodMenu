@@ -1,21 +1,18 @@
-package pl.github.maciasx.FoodMenu.service;
+package pl.github.maciasx.FoodMenu.food;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.github.maciasx.FoodMenu.model.Food;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/food")
-public class FoodResource {
+@AllArgsConstructor
+public class FoodController {
 
     private final FoodService foodService;
-
-    public FoodResource(FoodService foodService) {
-        this.foodService = foodService;
-    }
 
     @GetMapping("/all")
     public ResponseEntity<List<Food>> getAllFoods() {

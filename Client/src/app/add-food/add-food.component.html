@@ -1,1 +1,59 @@
-<p>add-food works!</p>
+<nav class="navbar navbar-light" style="background-color: #71eea1" >
+    <h1></h1>
+    <form class="nav justify-content-end">
+    <button type="button" id="add-btn" class="btn btn-success mx-2" routerLink="/menu">Jadłospis</button>
+    <button routerLink="/login" class="btn btn-danger mx-2">Wyloguj</button>
+</form>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Dodaj produkt (100g)</h1>
+                </div>
+                <form>
+                    <form [formGroup]="food" (ngSubmit)="addSignUp()">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Nazwa</label>
+                                <input formControlName="name" type="text" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['name'].dirty && food.hasError('required','name')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label class="form-label">Wartość energetyczna (kcal)</label>
+                                <input formControlName="calorie" type="number" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['calorie'].dirty && food.hasError('required','calorie')">*pole jest wymagane</span>
+
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Białko</label>
+                                <input formControlName="protein" type="number" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['protein'].dirty && food.hasError('required','protein')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Tłuszcze</label>
+                                <input formControlName="fat" type="number" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['fat'].dirty && food.hasError('required','fat')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Węglowodany</label>
+                                <input formControlName="carbohydrates" type="number" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['carbohydrates'].dirty && food.hasError('required','carbohydrates')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <button type="submit" [disabled]="!food.valid" class="btn btn-primary">Dodaj</button>
+                      </form>
+                </form>
+            </div>
+        </div>
+    </div>

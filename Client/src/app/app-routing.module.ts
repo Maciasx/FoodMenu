@@ -11,7 +11,7 @@ const routes: Routes = [
  {path:'login', component:LoginComponent},
  {path:'signup', component:SignupComponent},
  {path:'menu',component:MenuComponent},
- {path:'pickFood/:meal',component:PickFoodComponent},
+ {path:'pickFood/:date/:meal',component:PickFoodComponent},
  {path:'addFood',component:AddFoodComponent}
 
 ]

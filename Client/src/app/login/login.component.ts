@@ -26,20 +26,14 @@ export class LoginComponent implements OnInit {
   {
     this.loginService.getLogin(this.login).subscribe(
       (response: any) => {
-        if(response != null)
-        {
         alert("Logowanie powiodło się");
         this.login.reset();
         this.router.navigate(['menu'])
-        }
-        else
-        {
-          alert("Nie ma takiego użytkownika")
-        }
        }
       ,
       (error: HttpErrorResponse) => {
         alert("Coś poszło nie tak");
+        console.log(error);
       }
     );
   }

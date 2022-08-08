@@ -1,16 +1,15 @@
-package pl.github.maciasx.FoodMenu.repo;
+package pl.github.maciasx.FoodMenu.menu;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pl.github.maciasx.FoodMenu.model.Food;
-import pl.github.maciasx.FoodMenu.model.Meal;
-import pl.github.maciasx.FoodMenu.model.Menu;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
-public interface MenuRepo extends JpaRepository<Menu, Long> {
+@Repository
+public interface MenuRepository extends JpaRepository<Menu, Long> {
     void deleteMenuById(Long id);
 
     Optional<Menu> findMenuById(Long id);

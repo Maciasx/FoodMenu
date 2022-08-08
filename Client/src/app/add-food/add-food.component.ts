@@ -1,4 +1,9 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FoodService } from 'src/service/food.service';
+import { LoginService } from 'src/service/login.service';
 
 @Component({
   selector: 'app-add-food',
@@ -7,9 +12,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFoodComponent implements OnInit {
 
-  constructor() { }
+  public food !: FormGroup;
+  constructor(private formBuilder : FormBuilder, private http : HttpClient, private foodService: FoodService, private router:Router) { }
 
   ngOnInit(): void {
+    this.food = this.formBuilder.group({
+      name:['',Validators.required],
+      calorie: ['',Validators.required],
+      protein: ['',Validators.required],
+      fat: ['',Validators.required],
+      carbohydrates: ['',Validators.required]
+    })
+  }
+
+  addSignUp(){
+
+    this.foodService.addFood(this.food).subscribe(
+      (response: any) => {
+        alert("Dodano produkt do bazy")
+        this.food.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert("Coś poszło nie tak");
+      }
+    );
   }
 
 }

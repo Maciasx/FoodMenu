@@ -15,10 +15,10 @@ export class LoginService {
 
 
   addSignUp(signUp : FormGroup ) {
-    return this.http.post<any>(`${this.apiServerUrl}/login/add`,signUp.value);
+    return this.http.post<any>(`${this.apiServerUrl}/login/registration`,signUp.value);
   }
 
   getLogin(login : FormGroup) {
-    return this.http.post<any>(`${this.apiServerUrl}/login/login`,login.value)
+    return this.http.post<any>(`${this.apiServerUrl}/login`, login.value)
   }
 }

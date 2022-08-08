@@ -4,6 +4,5 @@ export interface Food {
     calorie: number,
     protein: number,
     fat: number,
-    sugar: number,
-    fiber: number
+    carbohydrates: number
 }

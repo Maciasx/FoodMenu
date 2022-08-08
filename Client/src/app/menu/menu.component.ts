@@ -7,11 +7,13 @@ import { Menu } from 'src/model/menu';
 import { FoodService } from 'src/service/food.service';
 import { MenuService } from 'src/service/menu.service';
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
 
   foods: Food[];
@@ -19,11 +21,12 @@ export class MenuComponent implements OnInit {
   DataSelected : any = this.datePipe.transform(new Date(),"yyyy-MM-dd");
   allMeal = Meal;
   
-
   constructor(private foodService: FoodService,private menuService: MenuService, private datePipe:DatePipe){}
   ngOnInit() {
     this.getAllMenu();
   }
+
+  
 
   public deleteFood(menuId: number)
   {

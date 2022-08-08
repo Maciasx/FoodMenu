@@ -1,25 +1,20 @@
-package pl.github.maciasx.FoodMenu.service;
+package pl.github.maciasx.FoodMenu.menu;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.github.maciasx.FoodMenu.model.Menu;
-import pl.github.maciasx.FoodMenu.model.MenuRequest;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/menu")
-public class MenuResource {
-
+@RequestMapping("menu")
+@AllArgsConstructor
+public class MenuController {
 
     private final MenuService menuService;
-
-    public MenuResource(MenuService menuService) {
-        this.menuService = menuService;
-    }
 
     @GetMapping("/all")
     public ResponseEntity<List<Menu>> getAllMenu() {
@@ -34,13 +29,13 @@ public class MenuResource {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Menu> addMenu(@RequestBody MenuRequest menu) {
+    public ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
         Menu newMenu = menuService.addMenu(menu);
         return new ResponseEntity<>(newMenu, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Menu> updateMenu(@RequestBody MenuRequest menu) {
+    public ResponseEntity<Menu> updateMenu(@RequestBody Menu menu) {
         Menu updateMenu = menuService.addMenu(menu);
         return new ResponseEntity<>(updateMenu, HttpStatus.OK);
     }
