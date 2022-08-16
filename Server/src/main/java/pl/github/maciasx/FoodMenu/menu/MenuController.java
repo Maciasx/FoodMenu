@@ -29,15 +29,9 @@ public class MenuController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
+    public ResponseEntity<Menu> addMenu(@RequestBody MenuRequest menu) {
         Menu newMenu = menuService.addMenu(menu);
-        return new ResponseEntity<>(newMenu, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/update")
-    public ResponseEntity<Menu> updateMenu(@RequestBody Menu menu) {
-        Menu updateMenu = menuService.addMenu(menu);
-        return new ResponseEntity<>(updateMenu, HttpStatus.OK);
+        return new ResponseEntity<>(newMenu,HttpStatus.CREATED);
     }
 
     @Transactional

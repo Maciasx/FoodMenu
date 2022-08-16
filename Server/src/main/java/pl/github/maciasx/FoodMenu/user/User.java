@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.github.maciasx.FoodMenu.model.Sex;
-import pl.github.maciasx.FoodMenu.model.UserRole;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -36,30 +35,24 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole;
-
     public User(String username,
                 String email,
                 String password,
                 Integer age,
                 Double height,
-                Sex sex,
-                UserRole userRole) {
+                Sex sex) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.age = age;
         this.height = height;
         this.sex = sex;
-        this.userRole = userRole;
     }
 
-    public User(String username, String email, String password, UserRole userRole) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.userRole = userRole;
     }
 
 }

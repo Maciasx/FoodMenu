@@ -4,7 +4,7 @@ import { Meal } from "./meal";
 
 export interface Menu {
     id: number,
-    foods: Food,
+    food: Food,
     meal: Meal,
     dateMenu: Date;
 }

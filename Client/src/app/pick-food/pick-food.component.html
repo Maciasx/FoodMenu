@@ -6,3 +6,34 @@
 </form>
 </nav>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Dodaj produkt do listy</h1>
+                </div>
+                <form>
+                    <form [formGroup]="pickFood" (ngSubmit)="addFood()">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Produkt</label>
+                                <select  class="form-control" formControlName="food">
+                                    <option [ngValue]="null" disabled>Wybierz produkt</option>
+                                    <option *ngFor="let food of foods" >{{food.name}}</option>
+                                  </select>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label class="form-label">Waga (g)</label>
+                                <input formControlName="weight" type="number" class="form-control" min="1">
+                                <span class="text-danger" *ngIf="pickFood.controls['weight'].dirty && pickFood.hasError('required','weight')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <button type="submit" [disabled]="pickFood.invalid" class="btn btn-primary">Dodaj</button>
+                      </form>
+                </form>
+            </div>
+        </div>
+    </div>

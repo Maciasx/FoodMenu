@@ -24,10 +24,14 @@ export class AddFoodComponent implements OnInit {
 
     this.food = this.formBuilder.group({
       name:['',Validators.required],
-      calorie: ['',Validators.required],
-      protein: ['',Validators.required],
-      fat: ['',Validators.required],
-      carbohydrates: ['',Validators.required]
+      energy: ['',Validators.required],
+      fat: [0,Validators.required],
+      saturates: [0,Validators.required],
+      carbohydrate: [0,Validators.required],
+      sugars: [0,Validators.required],
+      fibre: [0,Validators.required],
+      protein: [0,Validators.required],
+      salt: [0,Validators.required]
     })
 
    

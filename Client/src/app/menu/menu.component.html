@@ -1,54 +1,72 @@
 <nav class="navbar navbar-light" style="background-color: #71eea1" >
-    <h1 class="center" ><input (change)="getAllMenu()" type="date" [(ngModel)]="dataSelected"></h1>
+    <h1 class="navBar" ><input (change)="getAllMenu()" type="date" [(ngModel)]="dataSelected"></h1>
     <form class="nav justify-content-end">
     <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/addFood', user]"> Dodaj produkt</button>
+    <button type="button" class="btn btn-success mx-2" [routerLink]="['/profile', user]">Mój profil</button>
+
     <button routerLink="/login" class="btn btn-danger mx-2">Wyloguj</button>
 </form>
 </nav>
 
 <div class="center">Śniadanie</div>
-<table class="table">
-  <thead class="thead-light" style="background-color: #9ff1a6;">
+<table class="styled-table">
+  <thead>
     <tr>
       <th>Nazwa</th>
-      <th>Wartość energetyczna (kcal)</th>
-      <th>Białko</th>
-      <th>Tłuszcze</th>
-      <th>Węglowodany</th>
+      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Tłuszcz (g)</th>
+      <th>w tym kwasy tłuszczowe nasycone (g)</th>
+      <th>Węglowodany (g)</th>
+      <th>w tym cukry (g)</th>
+      <th>Błonnik (g)</th>
+      <th>Białko (g)</th>
+      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 0 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.foods.name}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.foods.calorie}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.foods.protein}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.foods.fat}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.foods.carbohydrates}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.energy}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fat}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.saturates}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.carbohydrate}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.sugars}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fibre}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.protein}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.salt}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
 </table>
 
 <div class="center">Drugie śniadanie</div>
-<table class="table">
-  <thead class="thead-light" style="background-color: #9ff1a6;">
+<table class="styled-table">
+  <thead>
     <tr>
       <th>Nazwa</th>
-      <th>Wartość energetyczna (kcal)</th>
-      <th>Białko</th>
-      <th>Tłuszcze</th>
-      <th>Węglowodany</th>
+      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Tłuszcz (g)</th>
+      <th>w tym kwasy tłuszczowe nasycone (g)</th>
+      <th>Węglowodany (g)</th>
+      <th>w tym cukry (g)</th>
+      <th>Błonnik (g)</th>
+      <th>Białko (g)</th>
+      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 1 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
-      <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST">{{menu.foods.name}}</td>
-      <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST">{{menu.foods.calorie}}</td>
-      <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST">{{menu.foods.protein}}</td>
-      <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST">{{menu.foods.fat}}</td>
-      <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST">{{menu.foods.carbohydrates}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.energy}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fat}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.saturates}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.carbohydrate}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.sugars}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fibre}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.protein}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.salt}}</td>
       <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
@@ -56,72 +74,96 @@
 
 
 <div class="center">Obiad</div>
-<table class="table">
-  <thead class="thead-light" style="background-color: #9ff1a6;">
+<table class="styled-table">
+  <thead>
     <tr>
       <th>Nazwa</th>
-      <th>Wartość energetyczna (kcal)</th>
-      <th>Białko</th>
-      <th>Tłuszcze</th>
-      <th>Węglowodany</th>
+      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Tłuszcz (g)</th>
+      <th>w tym kwasy tłuszczowe nasycone (g)</th>
+      <th>Węglowodany (g)</th>
+      <th>w tym cukry (g)</th>
+      <th>Błonnik (g)</th>
+      <th>Białko (g)</th>
+      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 2 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
-      <td *ngIf=" menu.meal == allMeal.LUNCH">{{menu.foods.name}}</td>
-      <td *ngIf=" menu.meal == allMeal.LUNCH">{{menu.foods.calorie}}</td>
-      <td *ngIf=" menu.meal == allMeal.LUNCH">{{menu.foods.protein}}</td>
-      <td *ngIf=" menu.meal == allMeal.LUNCH">{{menu.foods.fat}}</td>
-      <td *ngIf=" menu.meal == allMeal.LUNCH">{{menu.foods.carbohydrates}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.energy}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fat}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.saturates}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.carbohydrate}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.sugars}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fibre}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.protein}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.salt}}</td>
       <td *ngIf=" menu.meal == allMeal.LUNCH"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
 </table>
 
 <div class="center">Przekąska</div>
-<table class="table">
-  <thead class="thead-light" style="background-color: #9ff1a6;">
+<table class="styled-table">
+  <thead>
     <tr>
       <th>Nazwa</th>
-      <th>Wartość energetyczna (kcal)</th>
-      <th>Białko</th>
-      <th>Tłuszcze</th>
-      <th>Węglowodany</th>
+      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Tłuszcz (g)</th>
+      <th>w tym kwasy tłuszczowe nasycone (g)</th>
+      <th>Węglowodany (g)</th>
+      <th>w tym cukry (g)</th>
+      <th>Błonnik (g)</th>
+      <th>Białko (g)</th>
+      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 3 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
-      <td *ngIf=" menu.meal == allMeal.SNACK">{{menu.foods.name}}</td>
-      <td *ngIf=" menu.meal == allMeal.SNACK">{{menu.foods.calorie}}</td>
-      <td *ngIf=" menu.meal == allMeal.SNACK">{{menu.foods.protein}}</td>
-      <td *ngIf=" menu.meal == allMeal.SNACK">{{menu.foods.fat}}</td>
-      <td *ngIf=" menu.meal == allMeal.SNACK">{{menu.foods.carbohydrates}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.energy}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fat}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.saturates}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.carbohydrate}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.sugars}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fibre}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.protein}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.salt}}</td>
       <td *ngIf=" menu.meal == allMeal.SNACK"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
 </table>
 
-<div class="center">Kolacja</div>
-<table class="table">
-  <thead class="thead-light" style="background-color: #9ff1a6;">
+<div class="center" >Kolacja</div>
+<table class="styled-table">
+  <thead>
     <tr>
       <th>Nazwa</th>
-      <th>Wartość energetyczna (kcal)</th>
-      <th>Białko</th>
-      <th>Tłuszcze</th>
-      <th>Węglowodany</th>
+      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Tłuszcz (g)</th>
+      <th>w tym kwasy tłuszczowe nasycone (g)</th>
+      <th>Węglowodany (g)</th>
+      <th>w tym cukry (g)</th>
+      <th>Błonnik (g)</th>
+      <th>Białko (g)</th>
+      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 4 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
-      <td *ngIf=" menu.meal == allMeal.DINNER">{{menu.foods.name}}</td>
-      <td *ngIf=" menu.meal == allMeal.DINNER">{{menu.foods.calorie}}</td>
-      <td *ngIf=" menu.meal == allMeal.DINNER">{{menu.foods.protein}}</td>
-      <td *ngIf=" menu.meal == allMeal.DINNER">{{menu.foods.fat}}</td>
-      <td *ngIf=" menu.meal == allMeal.DINNER">{{menu.foods.carbohydrates}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.energy}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fat}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.saturates}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.carbohydrate}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.sugars}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fibre}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.protein}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.salt}}</td>
       <td *ngIf=" menu.meal == allMeal.DINNER"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>

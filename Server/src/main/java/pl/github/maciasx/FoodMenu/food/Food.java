@@ -23,12 +23,20 @@ public class Food implements Serializable {
 
     private String name;
 
-    private Double calorie;
-
-    private Double protein;
+    private Double energy;
 
     private Double fat;
 
-    private Double carbohydrates;
+    private Double saturates;
+
+    private Double carbohydrate;
+
+    private Double sugars;
+
+    private Double fibre;
+
+    private Double protein;
+
+    private Double salt;
 
 }

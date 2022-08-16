@@ -25,7 +25,10 @@ public class FoodService {
     }
 
     public Food findFoodById(Long id) {
-        return foodRepository.findFoodById(id).orElseThrow(() -> new ApiRequestException(" Food by id" + id + " was not found"));
+        return foodRepository.findFoodById(id).orElseThrow(() -> new ApiRequestException("Nie znaleziono produktu"));
+    }
+    public Food findFoodByName(String name) {
+        return foodRepository.findFoodByName(name).orElseThrow(() -> new ApiRequestException("Nie znaleziono produktu"));
     }
 
     public void deleteFood(Long id) {

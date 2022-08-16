@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
 
+
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
@@ -20,5 +21,14 @@ export class LoginService {
 
   getLogin(login : FormGroup) {
     return this.http.post<any>(`${this.apiServerUrl}/login`, login.value)
+  }
+
+  updateUser(updateUser: FormGroup) {
+    console.log(updateUser)
+    return this.http.put<any>(`${this.apiServerUrl}/login/update`, updateUser.value)
+  }
+
+  getUserById(user : Number) {
+    return this.http.get<any>(`${this.apiServerUrl}/login/find/${user}`)
   }
 }

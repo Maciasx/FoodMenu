@@ -13,6 +13,7 @@ import { PickFoodComponent } from './pick-food/pick-food.component';
 import { AddFoodComponent } from './add-food/add-food.component';
 import { MatTableModule } from '@angular/material/table'  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     MenuComponent,
     PickFoodComponent,
-    AddFoodComponent
+    AddFoodComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -24,34 +24,61 @@
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
-                                <label class="form-label">Wartość energetyczna (kcal)</label>
-                                <input formControlName="calorie" type="number" class="form-control">
-                                <span class="text-danger" *ngIf="food.controls['calorie'].dirty && food.hasError('required','calorie')">*pole jest wymagane</span>
-
+                                <label class="form-label">Wartość energetyczna (kj/kcal)</label>
+                                <input formControlName="energy" type="number" class="form-control" min="1">
+                                <span class="text-danger" *ngIf="food.controls['energy'].dirty && food.hasError('required','energy')">*pole jest wymagane</span>
                               </div>
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
-                                <label  class="form-label">Białko</label>
-                                <input formControlName="protein" type="number" class="form-control">
+                                <label  class="form-label">Tłuszcz (g)</label>
+                                <input formControlName="fat" type="number" min="0" class="form-control">          
+                                <span class="text-danger" *ngIf="food.controls['fat'].dirty && food.hasError('required','fat')">*pole jest wymagane</span>                    
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Kwasy tłuszczowe nasycone (g)</label>
+                                <input formControlName="saturates" type="number" min="0" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['saturates'].dirty && food.hasError('required','saturates')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Węglowodany (g)</label>
+                                <input formControlName="carbohydrate" type="number" min="0" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['carbohydrate'].dirty && food.hasError('required','carbohydrate')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Cukry (g)</label>
+                                <input formControlName="sugars" type="number" min="0" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['sugars'].dirty && food.hasError('required','sugars')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Błonnik (g)</label>
+                                <input formControlName="fibre" type="number" min="0" class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['fibre'].dirty && food.hasError('required','fibre')">*pole jest wymagane</span>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Białko (g)</label>
+                                <input formControlName="protein" type="number" min="0" class="form-control">
                                 <span class="text-danger" *ngIf="food.controls['protein'].dirty && food.hasError('required','protein')">*pole jest wymagane</span>
                               </div>
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
-                                <label  class="form-label">Tłuszcze</label>
-                                <input formControlName="fat" type="number" class="form-control">
-                                <span class="text-danger" *ngIf="food.controls['fat'].dirty && food.hasError('required','fat')">*pole jest wymagane</span>
+                                <label  class="form-label">Sól (g)</label>
+                                <input formControlName="salt" type="number" min="0"  class="form-control">
+                                <span class="text-danger" *ngIf="food.controls['salt'].dirty && food.hasError('required','salt')">*pole jest wymagane</span>
                               </div>
                         </div>
-                        <div class="mb-3">
-                            <div class="mb-3">
-                                <label  class="form-label">Węglowodany</label>
-                                <input formControlName="carbohydrates" type="number" class="form-control">
-                                <span class="text-danger" *ngIf="food.controls['carbohydrates'].dirty && food.hasError('required','carbohydrates')">*pole jest wymagane</span>
-                              </div>
-                        </div>
-                        <button type="submit" [disabled]="!food.valid" class="btn btn-primary">Dodaj</button>
+                        <button type="submit" [disabled]="food.invalid" class="btn btn-primary">Dodaj</button>
                       </form>
                 </form>
             </div>

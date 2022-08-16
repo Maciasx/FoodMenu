@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.github.maciasx.FoodMenu.food.Food;
 import pl.github.maciasx.FoodMenu.model.Meal;
-import pl.github.maciasx.FoodMenu.user.User;
 
 import java.sql.Date;
 
@@ -15,15 +13,15 @@ import java.sql.Date;
 @NoArgsConstructor
 public class MenuRequest {
 
-    private Long id;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private String food;
 
-    private Food food;
-
-    private User user;
+    private Long user;
 
     private Meal meal;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Double weight;
+
     private Date dateMenu;
 
 }
