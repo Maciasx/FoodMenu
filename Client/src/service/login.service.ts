@@ -31,4 +31,8 @@ export class LoginService {
   getUserById(user : Number) {
     return this.http.get<any>(`${this.apiServerUrl}/login/find/${user}`)
   }
+
+  getDailyEnergy(user: number) {
+    return this.http.get<any>(`${this.apiServerUrl}/login/energy/${user}`)
+  }
 }

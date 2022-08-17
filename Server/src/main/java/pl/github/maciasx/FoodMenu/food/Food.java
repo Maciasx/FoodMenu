@@ -23,6 +23,8 @@ public class Food implements Serializable {
 
     private String name;
 
+    private Double weight;
+
     private Double energy;
 
     private Double fat;

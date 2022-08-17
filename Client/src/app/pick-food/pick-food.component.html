@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light" style="background-color: #71eea1" >
+<nav class="navbar navbar-light" style="background-color: #68c970" >
     <h1></h1>
     <form class="nav justify-content-end">
     <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/menu', user]">Jadłospis</button>
@@ -20,7 +20,7 @@
                                 <label  class="form-label">Produkt</label>
                                 <select  class="form-control" formControlName="food">
                                     <option [ngValue]="null" disabled>Wybierz produkt</option>
-                                    <option *ngFor="let food of foods" >{{food.name}}</option>
+                                    <option *ngFor="let food of foods" [ngValue]="food.name">{{food.name}}</option>
                                   </select>
                               </div>
                         </div>

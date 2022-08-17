@@ -14,6 +14,6 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
 
     Optional<Menu> findMenuById(Long id);
 
-    @Query(value = "SELECT m FROM Menu  m WHERE TRUNC(m.dateMenu) = ?1 ")
-    List<Menu> findAllMenuByDateMenu(Date dateMenu);
+    @Query(value = "SELECT m FROM Menu  m WHERE TRUNC(m.dateMenu) = ?1 and m.user.id = ?2 ")
+    List<Menu> findAllMenu(Date dateMenu,Long id);
 }

@@ -6,6 +6,7 @@ import { Food } from 'src/model/food';
 import { Meal } from 'src/model/meal';
 import { Menu } from 'src/model/menu';
 import { FoodService } from 'src/service/food.service';
+import { LoginService } from 'src/service/login.service';
 import { MenuService } from 'src/service/menu.service';
 
 
@@ -17,21 +18,35 @@ import { MenuService } from 'src/service/menu.service';
 
 export class MenuComponent implements OnInit {
 
-  public foods: Food[];
   public menus: Menu[];
   public dataSelected : any = this.datePipe.transform(new Date(),"yyyy-MM-dd");
   public allMeal = Meal;
   public user: number;
+  public dailyEnergy: number = 0;
+  public menuEnergy : number = 0;
   
-  constructor(private foodService: FoodService,private menuService: MenuService, private datePipe:DatePipe, private route: ActivatedRoute){}
+  constructor(private foodService: FoodService,private menuService: MenuService,private loginService: LoginService, private datePipe:DatePipe, private route: ActivatedRoute){}
+  
   ngOnInit() {
-    this.getAllMenu();
     this.route.params.subscribe(params => {
       this.user = params["user"];
     });
-    console.log(this.user);
+
+    this.getAllMenu();
+
   }
 
+
+  public getDailyEnergy() {
+    this.loginService.getDailyEnergy(this.user).subscribe(
+      (response: any) => {
+        this.dailyEnergy = response;  
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
   
 
   public deleteFood(menuId: number)
@@ -46,24 +61,20 @@ export class MenuComponent implements OnInit {
       }
     );
   }
-  
-
-    public getFoods(): void {
-      this.foodService.getFoods().subscribe(
-        (response: Food[]) => {
-          this.foods = response;
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
-    }
 
     public getAllMenu(): void {
-      this.menuService.getMenuByDate(this.dataSelected).subscribe(
+      this.menuEnergy = 0;
+      this.menuService.getAllMenu(this.dataSelected,this.user).subscribe(
         (response: Menu[]) => {
-          this.menus = response;  
-          console.log(this.menus);     
+          this.menus = response;
+          console.log(this.menus);
+
+          this.menus.forEach(e => {
+            this.menuEnergy = this.menuEnergy + e.food.energy;
+          })
+
+          console.log(this.menuEnergy);
+          this.getDailyEnergy();
         },
         (error: HttpErrorResponse) => {
           alert(error.message);

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light" style="background-color: #71eea1" >
+<nav class="navbar navbar-light" style="background-color: #68c970" >
     <h1 class="navBar" ><input (change)="getAllMenu()" type="date" [(ngModel)]="dataSelected"></h1>
     <form class="nav justify-content-end">
     <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/addFood', user]"> Dodaj produkt</button>
@@ -8,11 +8,27 @@
 </form>
 </nav>
 
+
+      <div style="
+      text-align: center;
+      background-color: #68c970;
+      color: #ffffff;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 5px solid;"
+       >
+              <h4>Dzienne zapotrzebowanie kaloryczne</h4>
+              <h6>{{menuEnergy}} / {{dailyEnergy}}</h6>   
+      </div>
+
+
 <div class="center">Śniadanie</div>
 <table class="styled-table">
   <thead>
     <tr>
       <th>Nazwa</th>
+      <th>Waga (g)</th>
       <th>Wartość energetyczna (kj/kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
@@ -25,8 +41,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let menu of menus" >
+    <tr *ngFor="let menu of menus">
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.weight}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.energy}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fat}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.saturates}}</td>
@@ -45,6 +62,7 @@
   <thead>
     <tr>
       <th>Nazwa</th>
+      <th>Waga (g)</th>
       <th>Wartość energetyczna (kj/kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
@@ -59,6 +77,7 @@
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.weight}}</td>
       <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.energy}}</td>
       <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fat}}</td>
       <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.saturates}}</td>
@@ -78,6 +97,7 @@
   <thead>
     <tr>
       <th>Nazwa</th>
+      <th>Waga (g)</th>
       <th>Wartość energetyczna (kj/kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
@@ -92,6 +112,7 @@
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.weight}}</td>
       <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.energy}}</td>
       <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fat}}</td>
       <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.saturates}}</td>
@@ -110,6 +131,7 @@
   <thead>
     <tr>
       <th>Nazwa</th>
+      <th>Waga (g)</th>
       <th>Wartość energetyczna (kj/kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
@@ -124,6 +146,7 @@
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.weight}}</td>
       <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.energy}}</td>
       <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fat}}</td>
       <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.saturates}}</td>
@@ -142,6 +165,7 @@
   <thead>
     <tr>
       <th>Nazwa</th>
+      <th>Waga (g)</th>
       <th>Wartość energetyczna (kj/kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
@@ -156,6 +180,7 @@
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.name}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.weight}}</td>
       <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.energy}}</td>
       <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fat}}</td>
       <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.saturates}}</td>

@@ -16,15 +16,9 @@ public class MenuController {
 
     private final MenuService menuService;
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Menu>> getAllMenu() {
-        List<Menu> menu = menuService.findAllMenu();
-        return new ResponseEntity<>(menu, HttpStatus.OK);
-    }
-
-    @GetMapping("/find/{dateMenu}")
-    public ResponseEntity<List<Menu>> getMenu(@PathVariable("dateMenu") Date dateMenu) {
-        List<Menu> menu = menuService.findMenuByDateMenu(dateMenu);
+    @GetMapping("/{dataSelected}/{user}")
+    public ResponseEntity<List<Menu>> getAllMenu(@PathVariable("dataSelected") Date date, @PathVariable("user") Long id) {
+        List<Menu> menu = menuService.findAllMenu(date,id);
         return new ResponseEntity<>(menu, HttpStatus.OK);
     }
 
@@ -40,4 +34,6 @@ public class MenuController {
         menuService.deleteMenu(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }

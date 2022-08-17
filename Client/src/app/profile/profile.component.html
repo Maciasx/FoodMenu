@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light" style="background-color: #71eea1" >
+<nav class="navbar navbar-light" style="background-color: #68c970" >
     <h1></h1>
     <form class="nav justify-content-end">
     <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/menu', user]">Jadłospis</button>
@@ -27,10 +27,17 @@
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
-                                <label class="form-label">Wzrost</label>
+                                <label class="form-label">Wzrost (cm)</label>
                                 <input formControlName="height" type="number" placeholder="{{this.userDate.height}}" class="form-control" min="1">
                                 <span class="text-danger" *ngIf="updateUser.controls['height'].dirty && updateUser.hasError('required','height')">*pole jest wymagane</span>
                               </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label  class="form-label">Waga (kg)</label>
+                                <input formControlName="weight" type="number" min="0" placeholder="{{this.userDate.weight}}" class="form-control">          
+                                <span class="text-danger" *ngIf="updateUser.controls['weight'].dirty && updateUser.hasError('required','weight')">*pole jest wymagane</span>                    
+                            </div>
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">

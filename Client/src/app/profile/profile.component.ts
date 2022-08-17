@@ -31,6 +31,7 @@ export class ProfileComponent implements OnInit {
       id:[this.user],
       sex:[''],
       height: [''],
+      weight: [''],
       age: ['']
     })
 

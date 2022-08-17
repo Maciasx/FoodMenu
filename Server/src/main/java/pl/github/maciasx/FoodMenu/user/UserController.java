@@ -36,4 +36,10 @@ public class UserController {
         User user = userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping("/energy/{id}")
+    public ResponseEntity<Double> getDailyEnergy(@PathVariable("id") Long id) {
+        Double dailyEnergy = userService.getDailyEnergy(id);
+        return new ResponseEntity<>(dailyEnergy, HttpStatus.OK);
+    }
 }

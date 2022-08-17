@@ -9,16 +9,14 @@ import { Menu } from 'src/model/menu';
   providedIn: 'root'
 })
 export class MenuService {
+
+ 
   private apiServerUrl= environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getMenuByDate(DataSelected: Date) {
-    return this.http.get<Menu[]>(`${this.apiServerUrl}/menu/find/${DataSelected}`)
-  }
-
-  public getAllMenu(): Observable<Menu[]> {
-    return this.http.get<Menu[]>(`${this.apiServerUrl}/menu/all`);
+  public getAllMenu(dataSelected: Date, user: Number): Observable<Menu[]> {
+    return this.http.get<Menu[]>(`${this.apiServerUrl}/menu/${dataSelected}/${user}`);
   }
 
   deleteMenu(menuId: number) {

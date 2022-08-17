@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.github.maciasx.FoodMenu.exception.ApiRequestException;
 import pl.github.maciasx.FoodMenu.food.Food;
+import pl.github.maciasx.FoodMenu.food.FoodRepository;
 import pl.github.maciasx.FoodMenu.food.FoodService;
 import pl.github.maciasx.FoodMenu.user.User;
 import pl.github.maciasx.FoodMenu.user.UserService;
@@ -16,26 +17,46 @@ import java.util.List;
 public class MenuService {
 
     private final MenuRepository menuRepository;
-
+    private final FoodRepository foodRepository;
     private final FoodService foodService;
     private final UserService userService;
 
     public Menu addMenu(MenuRequest menu) {
 
-        Food food = foodService.findFoodByName(menu.getFood());
-        User user = userService.getUserById(menu.getUser());
-
         Menu newMenu = new Menu();
+
+        User user = userService.getUserById(menu.getUser());
+        Food getFood = foodService.findFoodByNameAndWeight(menu.getFood(), menu.getWeight());
+
+        if(getFood == null)
+        {
+            Double calculations = menu.getWeight() / 100;
+            getFood = foodService.findFoodByNameAndWeight(menu.getFood(),100D);
+            Food food = new Food();
+            food.setName(getFood.getName());
+            food.setEnergy(getFood.getEnergy()*calculations);
+            food.setFat(getFood.getFat()*calculations);
+            food.setCarbohydrate(getFood.getCarbohydrate()*calculations);
+            food.setFibre(getFood.getFibre()*calculations);
+            food.setProtein(getFood.getProtein()*calculations);
+            food.setSalt(getFood.getSalt()*calculations);
+            food.setSaturates(getFood.getSaturates()*calculations);
+            food.setSugars(getFood.getSugars()*calculations);
+            food.setWeight(getFood.getWeight()*calculations);
+            foodRepository.save(food);
+            newMenu.setFood(food);
+        }
+        else
+            newMenu.setFood(getFood);
         newMenu.setUser(user);
-        newMenu.setFood(food);
         newMenu.setDateMenu(menu.getDateMenu());
         newMenu.setMeal(menu.getMeal());
 
         return menuRepository.save(newMenu);
     }
 
-    public List<Menu> findAllMenu() {
-        return menuRepository.findAll();
+    public List<Menu> findAllMenu(Date date, Long id) {
+        return menuRepository.findAllMenu(date,id);
     }
 
     public List<Menu> findMenu() {
@@ -48,12 +69,6 @@ public class MenuService {
 
     public Menu findMenuById(Long id) {
         return menuRepository.findMenuById(id).orElseThrow(() -> new ApiRequestException(" Menu by id" + id + " was not found"));
-    }
-
-    public List<Menu> findMenuByDateMenu(Date dateMenu) {
-
-        List<Menu> allMenu = menuRepository.findAllMenuByDateMenu(dateMenu);
-        return allMenu;
     }
 
     public void deleteMenu(Long id) {
