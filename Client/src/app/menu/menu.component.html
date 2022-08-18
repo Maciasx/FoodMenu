@@ -19,7 +19,7 @@
       border: 5px solid;"
        >
               <h4>Dzienne zapotrzebowanie kaloryczne</h4>
-              <h6>{{menuEnergy}} / {{dailyEnergy}}</h6>   
+              <h6>{{menuEnergy.toFixed(2)}} / {{dailyEnergy.toFixed(2)}}</h6>   
       </div>
 
 
@@ -36,22 +36,20 @@
       <th>w tym cukry (g)</th>
       <th>Błonnik (g)</th>
       <th>Białko (g)</th>
-      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 0 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus">
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.name}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.weight}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.energy}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fat}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.saturates}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.carbohydrate}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.sugars}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fibre}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.protein}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.salt}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.weight.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.energy.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fat.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.saturates.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.carbohydrate.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.sugars.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fibre.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.protein.toFixed(2)}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
@@ -70,22 +68,20 @@
       <th>w tym cukry (g)</th>
       <th>Błonnik (g)</th>
       <th>Białko (g)</th>
-      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 1 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.name}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.weight}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.energy}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fat}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.saturates}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.carbohydrate}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.sugars}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fibre}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.protein}}</td>
-      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.salt}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.weight.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.energy.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fat.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.saturates.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.carbohydrate.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.sugars.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.fibre.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SECOND_BREAKFEST">{{menu.food.protein.toFixed(2)}}</td>
       <td *ngIf=" menu.meal == allMeal.SECOND_BREAKFEST"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
@@ -105,22 +101,20 @@
       <th>w tym cukry (g)</th>
       <th>Błonnik (g)</th>
       <th>Białko (g)</th>
-      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 2 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.name}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.weight}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.energy}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fat}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.saturates}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.carbohydrate}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.sugars}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fibre}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.protein}}</td>
-      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.salt}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.weight.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.energy.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fat.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.saturates.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.carbohydrate.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.sugars.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.fibre.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.LUNCH">{{menu.food.protein.toFixed(2)}}</td>
       <td *ngIf=" menu.meal == allMeal.LUNCH"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
@@ -139,22 +133,20 @@
       <th>w tym cukry (g)</th>
       <th>Błonnik (g)</th>
       <th>Białko (g)</th>
-      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 3 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.name}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.weight}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.energy}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fat}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.saturates}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.carbohydrate}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.sugars}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fibre}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.protein}}</td>
-      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.salt}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.weight.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.energy.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fat.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.saturates.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.carbohydrate.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.sugars.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.fibre.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.SNACK">{{menu.food.protein.toFixed(2)}}</td>
       <td *ngIf=" menu.meal == allMeal.SNACK"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>
@@ -173,22 +165,20 @@
       <th>w tym cukry (g)</th>
       <th>Błonnik (g)</th>
       <th>Białko (g)</th>
-      <th>Sól (g)</th>
       <th><button type="button" class="btn btn-primary" [routerLink]="['/pickFood', user, dataSelected, 4 ]">Dodaj</button></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let menu of menus" >
       <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.name}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.weight}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.energy}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fat}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.saturates}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.carbohydrate}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.sugars}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fibre}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.protein}}</td>
-      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.salt}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.weight.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.energy.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fat.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.saturates.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.carbohydrate.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.sugars.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.fibre.toFixed(2)}}</td>
+      <td *ngIf="menu.meal === allMeal.DINNER">{{menu.food.protein.toFixed(2)}}</td>
       <td *ngIf=" menu.meal == allMeal.DINNER"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
     </tr>
   </tbody>

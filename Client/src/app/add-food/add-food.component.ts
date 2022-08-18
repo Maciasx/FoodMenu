@@ -30,8 +30,7 @@ export class AddFoodComponent implements OnInit {
       carbohydrate: [0,Validators.required],
       sugars: [0,Validators.required],
       fibre: [0,Validators.required],
-      protein: [0,Validators.required],
-      salt: [0,Validators.required]
+      protein: [0,Validators.required]
     })
 
    

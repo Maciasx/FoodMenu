@@ -8,6 +8,5 @@ export interface Food {
     carbohydrate: number,
     sugars: number,
     fibre: number,
-    protein: number,
-    salt: number,
+    protein: number
 }

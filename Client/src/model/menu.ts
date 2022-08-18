@@ -6,5 +6,5 @@ export interface Menu {
     id: number,
     food: Food,
     meal: Meal,
-    dateMenu: Date;
+    dateMenu: Date
 }

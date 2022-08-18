@@ -71,13 +71,6 @@
                                 <span class="text-danger" *ngIf="food.controls['protein'].dirty && food.hasError('required','protein')">*pole jest wymagane</span>
                               </div>
                         </div>
-                        <div class="mb-3">
-                            <div class="mb-3">
-                                <label  class="form-label">Sól (g)</label>
-                                <input formControlName="salt" type="number" min="0"  class="form-control">
-                                <span class="text-danger" *ngIf="food.controls['salt'].dirty && food.hasError('required','salt')">*pole jest wymagane</span>
-                              </div>
-                        </div>
                         <button type="submit" [disabled]="food.invalid" class="btn btn-primary">Dodaj</button>
                       </form>
                 </form>

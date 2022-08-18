@@ -39,7 +39,6 @@ public class MenuService {
             food.setCarbohydrate(getFood.getCarbohydrate()*calculations);
             food.setFibre(getFood.getFibre()*calculations);
             food.setProtein(getFood.getProtein()*calculations);
-            food.setSalt(getFood.getSalt()*calculations);
             food.setSaturates(getFood.getSaturates()*calculations);
             food.setSugars(getFood.getSugars()*calculations);
             food.setWeight(getFood.getWeight()*calculations);

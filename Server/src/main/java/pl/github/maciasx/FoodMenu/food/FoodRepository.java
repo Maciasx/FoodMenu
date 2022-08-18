@@ -14,7 +14,7 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
     Optional<Food> findFoodById(Long id);
     Food findFoodByNameAndWeight(String name, Double weight);
 
-    @Query(value = "SELECT f FROM Food  f WHERE f.weight = 100 ")
+    @Query(value = "SELECT f FROM Food  f WHERE f.weight = 100 order by f.name asc")
     List<Food> findAllFood();
 
     @Query(value = "SELECT f FROM Food  f WHERE f.name = ?1 ")

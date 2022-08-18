@@ -39,6 +39,4 @@ public class Food implements Serializable {
 
     private Double protein;
 
-    private Double salt;
-
 }
