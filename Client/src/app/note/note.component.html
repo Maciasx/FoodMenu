@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light" style="background-color: #68c970" >
+    <h1></h1>
+    <form class="nav justify-content-end">
+    <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/menu', user]">Jadłospis</button>
+    <button routerLink="/login" class="btn btn-danger mx-2">Wyloguj</button>
+</form>
+</nav>
+<div class="card">
+    <div class="field">
+    <label class="center">Sposób przygotowania</label>
+    <form [formGroup]="noteData" (ngSubmit)="addNote()">
+    <div class="form-group">
+        <textarea formControlName="note" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+      </div>
+      <button type="submit" [disabled]="noteData.invalid" class="btn btn-primary">Dodaj</button>
+    </form>
+    </div>
+<div>

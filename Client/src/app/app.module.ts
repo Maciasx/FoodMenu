@@ -14,6 +14,7 @@ import { AddFoodComponent } from './add-food/add-food.component';
 import { MatTableModule } from '@angular/material/table'  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
+import { NoteComponent } from './note/note.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProfileComponent } from './profile/profile.component';
     MenuComponent,
     PickFoodComponent,
     AddFoodComponent,
-    ProfileComponent
+    ProfileComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
