@@ -5,14 +5,12 @@
             <div class="card">
                 <div class="text-center">
                     <h1>Logowanie</h1>
-                    <h6>Proszę podać email & hasło</h6>
                 </div>
                 <form>
                     <form [formGroup]="login" (ngSubmit)="getLogin()">
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Adres email </label>
                           <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <div id="emailHelp" class="form-text">Nie podawaj nigdy swojego emailu</div>
                           <span class="text-danger" *ngIf="login.controls['email'].dirty && login.hasError('required','email')">*Email jest wymagany</span>
                         </div>
                         <div class="mb-3">

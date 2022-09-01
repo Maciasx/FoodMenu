@@ -22,17 +22,17 @@ public class MenuController {
         return new ResponseEntity<>(menu, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Menu> addMenu(@RequestBody MenuRequest menu) {
-        Menu newMenu = menuService.addMenu(menu);
-        return new ResponseEntity<>(newMenu,HttpStatus.CREATED);
-    }
-
     @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteMenu(@PathVariable("id") Long id) {
         menuService.deleteMenu(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Menu> addMenu(@RequestBody MenuRequest menu) {
+        Menu newMenu = menuService.addMenu(menu);
+        return new ResponseEntity<>(newMenu,HttpStatus.CREATED);
     }
 
 

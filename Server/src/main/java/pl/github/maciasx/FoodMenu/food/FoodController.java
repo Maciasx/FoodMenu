@@ -44,5 +44,4 @@ public class FoodController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
 }

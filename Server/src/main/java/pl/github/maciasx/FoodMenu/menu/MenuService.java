@@ -2,7 +2,6 @@ package pl.github.maciasx.FoodMenu.menu;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.github.maciasx.FoodMenu.exception.ApiRequestException;
 import pl.github.maciasx.FoodMenu.food.Food;
 import pl.github.maciasx.FoodMenu.food.FoodRepository;
 import pl.github.maciasx.FoodMenu.food.FoodService;
@@ -28,25 +27,22 @@ public class MenuService {
         User user = userService.getUserById(menu.getUser());
         Food getFood = foodService.findFoodByNameAndWeight(menu.getFood(), menu.getWeight());
 
-        if(getFood == null)
-        {
+        if (getFood == null) {
             Double calculations = menu.getWeight() / 100;
-            getFood = foodService.findFoodByNameAndWeight(menu.getFood(),100D);
+            getFood = foodService.findFoodByNameAndWeight(menu.getFood(), 100D);
             Food food = new Food();
             food.setName(getFood.getName());
-            food.setEnergy(getFood.getEnergy()*calculations);
-            food.setFat(getFood.getFat()*calculations);
-            food.setCarbohydrate(getFood.getCarbohydrate()*calculations);
-            food.setFibre(getFood.getFibre()*calculations);
-            food.setProtein(getFood.getProtein()*calculations);
-            food.setSaturates(getFood.getSaturates()*calculations);
-            food.setSugars(getFood.getSugars()*calculations);
-            food.setWeight(getFood.getWeight()*calculations);
+            food.setEnergy(getFood.getEnergy() * calculations);
+            food.setFat(getFood.getFat() * calculations);
+            food.setCarbohydrate(getFood.getCarbohydrate() * calculations);
+            food.setFibre(getFood.getFibre() * calculations);
+            food.setProtein(getFood.getProtein() * calculations);
+            food.setSaturates(getFood.getSaturates() * calculations);
+            food.setSugars(getFood.getSugars() * calculations);
+            food.setWeight(getFood.getWeight() * calculations);
             foodRepository.save(food);
             newMenu.setFood(food);
-        }
-        else
-            newMenu.setFood(getFood);
+        } else newMenu.setFood(getFood);
         newMenu.setUser(user);
         newMenu.setDateMenu(menu.getDateMenu());
         newMenu.setMeal(menu.getMeal());
@@ -55,19 +51,7 @@ public class MenuService {
     }
 
     public List<Menu> findAllMenu(Date date, Long id) {
-        return menuRepository.findAllMenu(date,id);
-    }
-
-    public List<Menu> findMenu() {
-        return menuRepository.findAll();
-    }
-
-    public Menu updateMenu(Menu menu) {
-        return menuRepository.save(menu);
-    }
-
-    public Menu findMenuById(Long id) {
-        return menuRepository.findMenuById(id).orElseThrow(() -> new ApiRequestException(" Menu by id" + id + " was not found"));
+        return menuRepository.findAllMenu(date, id);
     }
 
     public void deleteMenu(Long id) {

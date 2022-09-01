@@ -15,7 +15,6 @@
                               </div>
                           <label for="exampleInputEmail1" class="form-label">Adres email </label>
                           <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <div id="emailHelp" class="form-text">Nie podawaj nigdy swojego emailu</div>
                           <span class="text-danger" *ngIf="signUp.controls['email'].dirty && signUp.hasError('required','email')">*Email jest wymagany</span>
 
                         </div>
