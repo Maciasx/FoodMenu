@@ -12,14 +12,14 @@ public class NoteController {
 
     private NoteService noteService;
 
-    @GetMapping
-    public ResponseEntity<Note> getNote(@RequestBody Note note) {
+    @PostMapping("/get")
+    public ResponseEntity<Note> getNote(@RequestBody NoteRequest note) {
         Note getNote = noteService.findNote(note);
         return new ResponseEntity<>(getNote, HttpStatus.OK);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Note> addNote(@RequestBody Note note) {
+    public ResponseEntity<Note> addNote(@RequestBody NoteRequest note) {
         Note newNote = noteService.addNote(note);
         return new ResponseEntity<>(newNote, HttpStatus.CREATED);
     }

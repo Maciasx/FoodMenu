@@ -24,8 +24,10 @@ public class Note implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
 
+    @Column(length = 4000)
     private String note;
 
+    @Enumerated(EnumType.STRING)
     private Meal meal;
 
     private Date dateMenu;
