@@ -1,6 +1,9 @@
 <nav class="navbar navbar-light" style="background-color: #68c970" >
     <h1 class="navBar" ><input (change)="getAllMenu()" type="date" [(ngModel)]="dataSelected"></h1>
     <form class="nav justify-content-end">
+      <div class="div-energy">
+        <h4>FoodMenu</h4>
+      </div>
     <button type="button" id="add-btn" class="btn btn-success mx-2" [routerLink]="['/addFood', user]"> Dodaj produkt</button>
     <button type="button" class="btn btn-success mx-2" [routerLink]="['/profile', user]">Mój profil</button>
 
@@ -16,13 +19,14 @@
 
 
 <div class="center">Śniadanie</div>
-<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 0 ]">Sposób przygotowania</button></div>
+<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 0 ]">
+  Sposób przygotowania</button></div>
 <table class="styled-table">
   <thead>
     <tr>
       <th>Nazwa</th>
       <th>Waga (g)</th>
-      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Wartość energetyczna (kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
       <th>Węglowodany (g)</th>
@@ -43,19 +47,20 @@
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.sugars.toFixed(2)}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.fibre.toFixed(2)}}</td>
       <td *ngIf="menu.meal === allMeal.BREAKFEST">{{menu.food.protein.toFixed(2)}}</td>
-      <td *ngIf="menu.meal === allMeal.BREAKFEST"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">Usuń</button></td>
+      <td *ngIf="menu.meal === allMeal.BREAKFEST"><button type="button" class="btn btn-secondary btn-sm" (click)="deleteFood(this.menu.id)">
+        Usuń</button></td>
     </tr>
   </tbody>
 </table>
 
 <div class="center">Drugie śniadanie</div>
-<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 0 ]">Sposób przygotowania</button></div>
+<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 1 ]">Sposób przygotowania</button></div>
 <table class="styled-table">
   <thead>
     <tr>
       <th>Nazwa</th>
       <th>Waga (g)</th>
-      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Wartość energetyczna (kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
       <th>Węglowodany (g)</th>
@@ -83,13 +88,13 @@
 
 
 <div class="center">Obiad</div>
-<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 0 ]">Sposób przygotowania</button></div>
+<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 2 ]">Sposób przygotowania</button></div>
 <table class="styled-table">
   <thead>
     <tr>
       <th>Nazwa</th>
       <th>Waga (g)</th>
-      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Wartość energetyczna (kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
       <th>Węglowodany (g)</th>
@@ -116,13 +121,13 @@
 </table>
 
 <div class="center">Przekąska</div>
-<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 0 ]">Sposób przygotowania</button></div>
+<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 3 ]">Sposób przygotowania</button></div>
 <table class="styled-table">
   <thead>
     <tr>
       <th>Nazwa</th>
       <th>Waga (g)</th>
-      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Wartość energetyczna (kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
       <th>Węglowodany (g)</th>
@@ -149,13 +154,13 @@
 </table>
 
 <div class="center" >Kolacja</div>
-<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 0 ]">Sposób przygotowania</button></div>
+<div class="center"> <button type="button" class="btn btn-success mx-2"[routerLink]="['/note', user, dataSelected, 4 ]">Sposób przygotowania</button></div>
 <table class="styled-table">
   <thead>
     <tr>
       <th>Nazwa</th>
       <th>Waga (g)</th>
-      <th>Wartość energetyczna (kj/kcal)</th>
+      <th>Wartość energetyczna (kcal)</th>
       <th>Tłuszcz (g)</th>
       <th>w tym kwasy tłuszczowe nasycone (g)</th>
       <th>Węglowodany (g)</th>

@@ -4,10 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.github.maciasx.FoodMenu.food.Food;
-import pl.github.maciasx.FoodMenu.model.Meal;
-import pl.github.maciasx.FoodMenu.user.User;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;

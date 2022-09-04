@@ -22,7 +22,7 @@
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Hasło</label>
                           <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
-                          <span class="text-danger" *ngIf="signUp.controls['password'].dirty && signUp.hasError('required','password')">*Hasło jest wymagane</span>
+                          <span class="text-danger" *ngIf="signUp.controls['password'].dirty && signUp.hasError('required','password')">*Hasło jest wymagane</span>                    
                         </div>
                         <button type="submit" [disabled]="!signUp.valid" class="btn btn-primary">Zarejestruj się</button>
                       </form>

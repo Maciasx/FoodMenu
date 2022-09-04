@@ -22,31 +22,35 @@
                                     <option value="male">Mężczyzna</option>
                                     <option value="female">Kobieta</option>
                                   </select>
-                                <span class="text-danger" *ngIf="updateUser.controls['sex'].dirty && updateUser.hasError('required','sex')">*pole jest wymagane</span>
+                                <span class="text-danger" *ngIf="updateUser.controls['sex'].dirty && updateUser.hasError('required','sex')">
+                                    *pole jest wymagane</span>
                               </div>
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label class="form-label">Wzrost (cm)</label>
                                 <input formControlName="height" type="number" placeholder="{{this.userDate.height}}" class="form-control" min="1">
-                                <span class="text-danger" *ngIf="updateUser.controls['height'].dirty && updateUser.hasError('required','height')">*pole jest wymagane</span>
+                                <span class="text-danger" *ngIf="updateUser.controls['height'].dirty && updateUser.hasError('required','height')">
+                                    *pole jest wymagane</span>
                               </div>
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label  class="form-label">Waga (kg)</label>
                                 <input formControlName="weight" type="number" min="0" placeholder="{{this.userDate.weight}}" class="form-control">          
-                                <span class="text-danger" *ngIf="updateUser.controls['weight'].dirty && updateUser.hasError('required','weight')">*pole jest wymagane</span>                    
+                                <span class="text-danger" *ngIf="updateUser.controls['weight'].dirty && updateUser.hasError('required','weight')">
+                                    *pole jest wymagane</span>                    
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label  class="form-label">Wiek</label>
                                 <input formControlName="age" type="number" min="0" placeholder="{{this.userDate.age}}" class="form-control">          
-                                <span class="text-danger" *ngIf="updateUser.controls['age'].dirty && updateUser.hasError('required','age')">*pole jest wymagane</span>                    
+                                <span class="text-danger" *ngIf="updateUser.controls['age'].dirty && updateUser.hasError('required','age')">
+                                    *pole jest wymagane</span>                    
                             </div>
                         </div>
-                        <button type="submit" (click)="reloadCurrentPage()" [disabled]="updateUser.invalid" class="btn btn-primary">Dodaj</button>
+                        <button type="submit" (click)="reloadCurrentPage()" [disabled]="updateUser.invalid" class="btn btn-primary">Dodaj</button>                                     
                       </form>
                 </form>
             </div>

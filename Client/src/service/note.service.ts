@@ -19,7 +19,7 @@ export class NoteService {
   }
 
   public getNote(note: FormGroup): Observable<any> {
-    return this.http.get<any>(`${this.apiServerUrl}/note/get`,note.value);
+    return this.http.post<any>(`${this.apiServerUrl}/note/get`,note.value);
   }
 
 

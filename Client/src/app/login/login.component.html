@@ -1,4 +1,9 @@
-
+<div class="card2">
+    <div class="text-center">
+    <h1>FoodMenu</h1>
+    <h2>Stwórz swój własny jadłospis</h2>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -16,6 +21,7 @@
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Hasło</label>
                           <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                          <span class="text-danger" *ngIf="login.controls['password'].dirty && login.hasError('required','password')">*Hasło jest wymagane</span>         
                         </div>
                         <button type="submit" [disabled]="!login.valid" class="btn btn-primary" >Zatwierdź</button>
                       </form>

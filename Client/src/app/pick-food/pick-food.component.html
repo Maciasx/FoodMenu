@@ -28,7 +28,8 @@
                             <div class="mb-3">
                                 <label class="form-label">Waga (g)</label>
                                 <input formControlName="weight" type="number" class="form-control" min="1">
-                                <span class="text-danger" *ngIf="pickFood.controls['weight'].dirty && pickFood.hasError('required','weight')">*pole jest wymagane</span>
+                                <span class="text-danger" *ngIf="pickFood.controls['weight'].dirty && pickFood.hasError('required','weight')">                           
+                                    *pole jest wymagane</span>
                               </div>
                         </div>
                         <button type="submit" [disabled]="pickFood.invalid" class="btn btn-primary">Dodaj</button>

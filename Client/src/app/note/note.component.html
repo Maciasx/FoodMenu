@@ -10,7 +10,7 @@
     <label class="center">Sposób przygotowania</label>
     <form [formGroup]="noteData" (ngSubmit)="addNote()">
     <div class="form-group">
-        <textarea formControlName="note" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+        <textarea formControlName="note" type="" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
       </div>
       <button type="submit" [disabled]="noteData.invalid" class="btn btn-primary">Dodaj</button>
     </form>
