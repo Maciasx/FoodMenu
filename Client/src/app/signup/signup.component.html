@@ -11,7 +11,8 @@
                             <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Nazwa użytkownika</label>
                                 <input formControlName="username" type="text" class="form-control" id="exampleInputUsername1">
-                                <span class="text-danger" *ngIf="signUp.controls['username'].dirty && signUp.hasError('required','username')">*Nazwa użytkownika jest wymagane</span>
+                                <span class="text-danger" *ngIf="signUp.controls['username'].dirty && signUp.hasError('required','username')">
+                                    *Nazwa użytkownika jest wymagana</span>
                               </div>
                           <label for="exampleInputEmail1" class="form-label">Adres email </label>
                           <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
